@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');//forms don't support PUT method
 
 mongoose.connect('mongodb://localhost/cat_db', {useNewUrlParser: true, useUnifiedTopology: true});
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
+app.use(methodOverride('method'));
 
 //Schema setup: id, url, value.
 const catSchema = new mongoose.Schema({
@@ -48,10 +50,10 @@ app.get('/', (req, res) => {
             console.log(err);
 
         } else {
-            // const upVote = allCats.filter(cats => cats.vote === 1);
-            // const downVote = allCats.filter(cats => cats.vote === 0);
+            const upVoted = allCats.filter(cats => cats.vote === 1);
+            const downVoted = allCats.filter(cats => cats.vote === 0);
             const randomCat = allCats[Math.floor(Math.random() * allCats.length)];
-            res.render('index', {cats: randomCat});
+            res.render('index', {randomCat, upVoted});
             
         }
         
@@ -59,19 +61,27 @@ app.get('/', (req, res) => {
 
 });
 
-app.put('/', (req, res) => {
-    Cat.find({}, (err, allCats) => {
+app.put('/upvote/:id', (req, res) => {
+    Cat.findByIdAndUpdate(req.params.id, {vote:1}, (err, updated) => {
         if(err) {
             console.log(err);
-
+            
         } else {
             res.redirect('/');
-            
         }
-        
     })
 })
 
+app.put('/downvote/:id', (req, res) => {
+    Cat.findByIdAndUpdate(req.params.id, {vote:0}, (err, updated) => {
+        if(err) {
+            console.log(err);
+            
+        } else {
+            res.redirect('/');
+        }
+    })
+})
 
 app.listen(3000, () => {
     console.log('Server is running on PORT:3000');
