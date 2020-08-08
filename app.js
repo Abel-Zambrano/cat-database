@@ -56,6 +56,20 @@ app.get('/', (req, res) => {
 
 });
 
+app.post('/', (req, res) => {
+    Cat.find({}, (err, allCats) => {
+        if(err) {
+            console.log(err);
+
+        } else {
+            const randomCat = allCats[Math.floor(Math.random() * allCats.length)];
+            res.render('index', {cats: randomCat});
+            
+        }
+        
+    })
+})
+
 
 app.listen(3000, () => {
     console.log('Server is running on PORT:3000');
