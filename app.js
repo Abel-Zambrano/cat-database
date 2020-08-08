@@ -48,8 +48,8 @@ app.get('/', (req, res) => {
             console.log(err);
 
         } else {
-            const upVote = allCats.filter(cats => cats.votes === 1);
-            const downVote = allCats.filter(cats => cats.votes === 0)
+            // const upVote = allCats.filter(cats => cats.vote === 1);
+            // const downVote = allCats.filter(cats => cats.vote === 0);
             const randomCat = allCats[Math.floor(Math.random() * allCats.length)];
             res.render('index', {cats: randomCat});
             
@@ -65,8 +65,7 @@ app.put('/', (req, res) => {
             console.log(err);
 
         } else {
-            const randomCat = allCats[Math.floor(Math.random() * allCats.length)];
-            res.render('index', {cats: randomCat});
+            res.redirect('/');
             
         }
         
