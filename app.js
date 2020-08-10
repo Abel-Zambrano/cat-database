@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');//forms don't support PUT method
 
-mongoose.connect('mongodb://localhost/cat_db', {useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect('mongodb://localhost/cat_db', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://amdin-abel:admin123@cluster0.u7t9t.mongodb.net/cat_db', {useNewUrlParser: true, useUnifiedTopology: true})
+
 mongoose.set('useFindAndModify', false);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
@@ -20,38 +22,6 @@ const catSchema = new mongoose.Schema({
 
 //Compile Model
 const Cat = mongoose.model('Cat', catSchema);
-
-//add cats to database
-// Cat.create(
-//     { url:'https://cdn2.thecatapi.com/images/a9j.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/bir.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/9jf.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/bkc.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/d2o.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/MTk2NTM4NA.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/ajA3tUqUR.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/7l5.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/e9d.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/dje.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/blr.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/dq2.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/il.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/MjAwOTQzMg.gif', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/5hp.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/d8i.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/4ga.gif', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/cnf.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/3q.jpg', vote:0},
-//     { url:'https://cdn2.thecatapi.com/images/b4r.jpg', vote:0},
-//     (err, cat) => {
-//         if(err) {
-//             console.log(err);
-//         } else {
-//             console.log('Success!');
-//             console.log(cat);           
-//         }
-//     }
-// )
 
 app.get('/', (req, res) => {
     Cat.find({}, (err, allCats) => {
