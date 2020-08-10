@@ -14,7 +14,7 @@ app.use(methodOverride('method'));
 const catSchema = new mongoose.Schema({
     id: String,
     url: String,
-    vote: Number
+    vote: Number,
         
 });
 
