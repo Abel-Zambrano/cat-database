@@ -23,24 +23,32 @@ const Cat = mongoose.model('Cat', catSchema);
 
 //add cats to database
 // Cat.create(
-//     { id:1, url:'https://cdn2.thecatapi.com/images/a9j.jpg', vote:0},
-//     { id:3, url:'https://cdn2.thecatapi.com/images/bir.jpg', vote:0},
-//     { id:4, url:'https://cdn2.thecatapi.com/images/9jf.jpg', vote:0},
-//     { id:5, url:'https://cdn2.thecatapi.com/images/bkc.jpg', vote:0},
-//     { id:6, url:'https://cdn2.thecatapi.com/images/d2o.jpg', vote:0},
-//     { id:7, url:'https://cdn2.thecatapi.com/images/MTk2NTM4NA.jpg', vote:0},
-//     { id:8, url:'https://cdn2.thecatapi.com/images/ajA3tUqUR.jpg', vote:0},
-//     { id:9, url:'https://cdn2.thecatapi.com/images/7l5.jpg', vote:0},
-//     { id:10, url:'https://cdn2.thecatapi.com/images/e9d.jpg', vote:0},
-//     { id:2, url:'https://cdn2.thecatapi.com/images/dje.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/a9j.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/bir.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/9jf.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/bkc.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/d2o.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/MTk2NTM4NA.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/ajA3tUqUR.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/7l5.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/e9d.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/dje.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/blr.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/dq2.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/il.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/MjAwOTQzMg.gif', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/5hp.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/d8i.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/4ga.gif', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/cnf.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/3q.jpg', vote:0},
+//     { url:'https://cdn2.thecatapi.com/images/b4r.jpg', vote:0},
 //     (err, cat) => {
 //         if(err) {
 //             console.log(err);
 //         } else {
 //             console.log('Success!');
-//             console.log(cat);
-            
-            
+//             console.log(cat);           
 //         }
 //     }
 // )
