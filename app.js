@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');//forms don't support PUT method
 
-mongoose.connect('mongodb://localhost/cat_db', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb+srv://amdin-abel:admin123@cluster0.u7t9t.mongodb.net/cat_db?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true});
 
 mongoose.set('useFindAndModify', false);
 app.use(bodyParser.urlencoded({extended: true}));
